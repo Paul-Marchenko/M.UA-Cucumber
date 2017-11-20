@@ -1,0 +1,86 @@
+#Fetchcore
+version: '2'
+services:
+  memcached:
+    image: memcached:alpine
+  database:
+    image: postgres
+    ports:
+     - "5432:5432"
+    volumes: 
+     - pgdata:/var/lib/postgresql/data
+    environment:
+     - POSTGRES_DB=fetchcore
+     - POSTGRES_USER=fetchdb
+     - POSTGRES_PASSWORD=robotics
+  
+  redis:
+    image: redis:alpine
+    #ports:
+    # - "6379:6379"
+  fetchcore-proxy:
+    image: fetchcore-dev.cogniance.com/cogniance/fetchcore-proxy:latest
+    ports:
+     - "80:80"
+    depends_on:
+     - fetchcore-server
+  fetchcore-coordinator:
+    image: fetchcore-dev.cogniance.com/fetchrobotics/coordinator:latest
+    restart: always
+    #network_mode: 'host'
+    volumes:
+      - ~/logs/fetchcore-coordinator:/var/log/supervisor
+    environment:
+     - HOST=fetchcore-server
+     - PORT=8000
+     - PASSWORD=robotics
+     - COLLISION_CHECK=true
+     - AUTH0_CLIENT_ID=efPjIzZrsTq2XDZSBAS8kbbEbo2ptQZj
+     - AUTH0_CLIENT_SECRET=g9CjGEqON0k-xiBFCRl7BGCGdNjgVwFPIVmsCLUm0dykPUvawhhCVhXDYjaKC1F9
+     - AUTH0_SERVER_URL=hello-there.auth0.com
+     - AUTH0_DATABASE=dev
+    depends_on:
+     - fetchcore-server
+  fetchcore-server:
+    image: fetchcore-dev.cogniance.com/fetchrobotics/fetchcore_server:latest
+    command: sh -c "django-admin makemigrations && django-admin migrate && /usr/bin/supervisord"
+    #Running server in django dev mode
+    #entrypoint: sh -c "python /usr/local/bin/rollback.py && django-admin migrate"
+    #command: django-admin runserver
+    restart: always
+    #network_mode: 'host'
+    ports:
+     - "8000:8000"
+    environment:
+     - MEMCACHED_HOST=memcached
+     - REDIS_HOST=redis
+     - POSTGRESQL=database
+     - DJANGO_SETTINGS_MODULE=fetchcore_server.settings
+     - AWS_ACCESS_KEY_ID=AKIAJGGQRJ6PVJN5HGNA
+     - AWS_SECRET_ACCESS_KEY=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     
+     #- AWS_STORAGE_BUCKET_NAME=internal-development
+    volumes:
+     - ~/logs/fetchcore-server:/var/log/supervisor
+     - apiresources:/usr/local/lib/python2.7/site-packages/fetchcore_server/resources
+     #- /var/run/docker.sock:/var/run/docker.sock
+    depends_on:
+      - database
+      - memcached
+      - redis
+  streams-server:
+    image: fetchcore-dev.cogniance.com/fetchrobotics/streams_server:latest
+    restart: always
+    #network_mode: 'host'
+    ports:
+     - "8080:8080"
+    environment:
+     - STREAMS_SERVER_LOG_DIR=/var/log/streams_server
+     - FETCHCORE_API_HOST=fetchcore-server
+     - FETCHCORE_API_PORT=8000
+    depends_on:
+     - fetchcore-server
+    volumes:
+     - ~/logs/streams-server:/var/log/streams_server
+volumes: 
+  pgdata:
+  apiresources:
