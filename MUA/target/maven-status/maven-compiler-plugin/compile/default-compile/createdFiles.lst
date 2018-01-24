@@ -1,0 +1,4 @@
+com/pages/Login.class
+com/pages/MainPage.class
+com/baseConfiges/BasePageObject.class
+com/baseConfiges/BaseConditions.class

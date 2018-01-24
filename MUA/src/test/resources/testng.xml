@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="MainPageSuite" verbose="1" >
+    <test name="MainPageTest">
+        <classes>
+            <class name="com.tests.LoginTest">
+
+            </class>
+        </classes>
+    </test>
+
+
+</suite>
