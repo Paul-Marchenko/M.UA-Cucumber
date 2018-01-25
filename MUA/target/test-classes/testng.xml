@@ -4,6 +4,9 @@
     <test name="MainPageTest">
         <classes>
             <class name="com.tests.LoginTest">
+                <methods>
+                    <exclude name="login"></exclude>
+                </methods>
 
             </class>
         </classes>

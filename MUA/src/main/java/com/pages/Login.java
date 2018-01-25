@@ -1,14 +1,14 @@
 package com.pages;
 
-import com.baseConfiges.BasePageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class Login extends MainPage {
-    private By ExitWindow=By.xpath("//*[@id=\"mui_user_login_row\"]/span/em");
+    private By EntryWindow =By.xpath("//*[@id=\"mui_user_login_row\"]/span/em");
     private By emailField = By.xpath("//*[@name='l_']");
     private By paswordField = By.xpath("//*[@name='pw_']");
     private By signInButton = By.xpath("//*[@value='Войти']");
+    private By errorMessage = By.xpath("//*[@class='l-err']");
 
 
     public Login(WebDriver driver) {
@@ -20,10 +20,16 @@ public class Login extends MainPage {
 
     }
     public void openLoginWindow(){
-        openElement(ExitWindow);
+        openElement(EntryWindow);
     }
-    public void pushSignInButton(){
+    public ProfilePage pushSignInButton(){
         clickButton(signInButton);
+        return new ProfilePage(driver);
     }
 
+
+    public String getLogInErrorMessage() {
+        waitForVisibilityOf(errorMessage, 10);
+        return getText(errorMessage);
+    }
 }

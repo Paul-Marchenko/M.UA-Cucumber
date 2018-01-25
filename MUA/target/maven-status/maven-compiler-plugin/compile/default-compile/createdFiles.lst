@@ -1,4 +1,6 @@
 com/pages/Login.class
+com/baseConfiges/CsvDataProvider.class
+com/pages/ProfilePage.class
 com/pages/MainPage.class
 com/baseConfiges/BasePageObject.class
 com/baseConfiges/BaseConditions.class
