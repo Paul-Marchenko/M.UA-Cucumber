@@ -4,12 +4,14 @@ import com.baseConfiges.BasePageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import java.util.logging.Logger;
+
 public class ProfilePage extends BasePageObject<ProfilePage> {
     private By nameProfile = By.xpath("//*[@class='info-nick']");
     private By mainLabel = By.xpath("//*[@class='t-logo']");
 
-    public ProfilePage(WebDriver driver) {
-        super(driver);
+    public ProfilePage(WebDriver driver, Logger log) {
+        super(driver, log);
     }
 
     public void waitForProfilrPageToLoad() {

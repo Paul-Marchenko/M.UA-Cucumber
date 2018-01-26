@@ -3,22 +3,19 @@ package com.tests;
 import com.baseConfiges.BaseConditions;
 import com.baseConfiges.CsvDataProvider;
 import com.pages.Login;
-import com.pages.MainPage;
 import com.pages.ProfilePage;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.nio.file.Watchable;
 import java.util.Map;
 
 public class LoginTest extends BaseConditions {
 
 
-    @Test
+    @Test(priority = 1, groups = { "login" })
     public void login() throws InterruptedException {
 
-        Login login = new Login(driver);
+        Login login = new Login(driver, log);
         String expectedPageTitle = "MagaZilla - сравнение цен в интернет-магазинах";
         String correctProfileName = "Paolo";
 
@@ -35,17 +32,17 @@ public class LoginTest extends BaseConditions {
 
     }
 
-    @Test(dataProvider = "CsvDataProvider", dataProviderClass = CsvDataProvider.class)
+    @Test(dataProvider = "CsvDataProvider", dataProviderClass = CsvDataProvider.class, priority = 2,groups = { "wrongLogin", "broken"})
     public void wrongLogin(Map<String, String> testData) throws InterruptedException {
         String expectedErrorMessage = "email Sir_Bobby@i.ua1 указан неверно!";
         String textNumber = testData.get("no");
         String email = testData.get("email");
         String password = testData.get("password");
         String description =testData.get("description");
-        System.out.println("T#1" + textNumber + " for " + description + " email: "
+        log.info("T#1" + textNumber + " for " + description + " email: "
         + email + " pass " + password);
 
-        Login login = new Login(driver);
+        Login login = new Login(driver, log);
         String expectedPageTitle = "MagaZilla - сравнение цен в интернет-магазинах";
         String correctProfileName = "Paolo";
 

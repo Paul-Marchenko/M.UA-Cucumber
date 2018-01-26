@@ -3,6 +3,8 @@ package com.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import java.util.logging.Logger;
+
 public class Login extends MainPage {
     private By EntryWindow =By.xpath("//*[@id=\"mui_user_login_row\"]/span/em");
     private By emailField = By.xpath("//*[@name='l_']");
@@ -11,8 +13,8 @@ public class Login extends MainPage {
     private By errorMessage = By.xpath("//*[@class='l-err']");
 
 
-    public Login(WebDriver driver) {
-        super(driver);
+    public Login(WebDriver driver, Logger log) {
+        super(driver, log);
     }
     public void fillUpCredentials(String email, String password){
         type(email,emailField);
@@ -24,7 +26,7 @@ public class Login extends MainPage {
     }
     public ProfilePage pushSignInButton(){
         clickButton(signInButton);
-        return new ProfilePage(driver);
+        return new ProfilePage(driver,log);
     }
 
 
