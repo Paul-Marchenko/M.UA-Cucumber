@@ -50,28 +50,54 @@ formatter.match({
   "location": "Login.givenStatement()"
 });
 formatter.result({
-  "duration": 162439813,
+  "duration": 255378538,
   "status": "passed"
 });
 formatter.match({
   "location": "Login.whenStatement()"
 });
 formatter.result({
-  "duration": 56273,
+  "duration": 61264,
   "status": "passed"
 });
 formatter.match({
   "location": "Login.andStatement()"
 });
 formatter.result({
-  "duration": 56185,
+  "duration": 104612,
   "status": "passed"
 });
 formatter.match({
   "location": "Login.thenStatement()"
 });
 formatter.result({
-  "duration": 53459,
+  "duration": 75547,
   "status": "passed"
+});
+formatter.scenario({
+  "line": 11,
+  "name": "Successful LogOut",
+  "description": "",
+  "id": "login-action;successful-logout",
+  "type": "scenario",
+  "keyword": "Scenario"
+});
+formatter.step({
+  "line": 12,
+  "name": "User LogOut from the Application",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 13,
+  "name": "Message displayed LogOut Successfully",
+  "keyword": "Then "
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
 });
 });
