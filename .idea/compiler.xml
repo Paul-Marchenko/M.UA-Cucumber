@@ -6,19 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-<<<<<<< HEAD
         <module name="MUA(Cucumber)" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="MUA(Cucumber)" target="1.5" />
-=======
-        <module name="MUACucumber" />
-      </profile>
-    </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="MUACucumber" target="1.5" />
->>>>>>> 278adf2f697ebbc69f4e13a4180263507f82e89f
     </bytecodeTargetLevel>
   </component>
 </project>
