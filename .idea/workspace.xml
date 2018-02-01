@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9c2a4da9-8881-4060-b98d-11cf4d4b47fc" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/test/resources/assert.feature" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/MUA(Cucumber).iml" afterPath="$PROJECT_DIR$/MUA(Cucumber).iml" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/reports/test-report/report.js" afterPath="$PROJECT_DIR$/reports/test-report/report.js" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CucumberRunner.java" afterPath="$PROJECT_DIR$/src/test/java/CucumberRunner.java" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/test.feature" afterPath="$PROJECT_DIR$/src/test/resources/test.feature" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/CucumberRunner.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/Login.class" afterPath="$PROJECT_DIR$/target/test-classes/Login.class" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/test.feature" afterPath="$PROJECT_DIR$/target/test-classes/test.feature" />
-    </list>
+    <list default="true" id="9c2a4da9-8881-4060-b98d-11cf4d4b47fc" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
