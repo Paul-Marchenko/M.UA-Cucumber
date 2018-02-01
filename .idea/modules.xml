@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/MUA(Cucumber).iml" filepath="$PROJECT_DIR$/MUA(Cucumber).iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/MUACucumber.iml" filepath="$PROJECT_DIR$/MUACucumber.iml" />
+>>>>>>> 278adf2f697ebbc69f4e13a4180263507f82e89f
     </modules>
   </component>
 </project>
